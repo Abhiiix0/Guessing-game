@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: bisque;
+            text-align: center;
+        }
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        h1 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bolder;
+        }
+
+        input {
+            width: 150px;
+            height: 30px;
+            text-align: center;
+            font-size: large;
+        }
+
+        button {
+            margin-top: 20px;
+            height: 34px;
+            width: 80px;
+            font-size: large;
+        }
+        a{
+            text-decoration: none;
+        }
+        h2{
+            margin-bottom: 20px;
+            font-size: 25px;
+
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        p{
+            margin-top: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Guess the number</h1>
+        <h2>Hard mode</h2>
+        <input type="number" id="num"><br>
+        <button onclick=easymode();>Enter</button><br>
+        <button><a href="index.html">Back</a></button>
+        <p>
+            You have to guess the number in 9 guess
+        </p>
+    </div>
+    <script>
+
+        var rand = Math.random() * (100 - 1) + 1;
+        var randno = parseInt(rand);
+        var guess = 8;
+        var attempt = 1;
+        var maxattempt = 9;
+        function easymode() {
+            var num = document.getElementById('num').value;
+            // for (let i = 0; i < 3; i++) {
+                if (maxattempt != attempt) {
+                if (randno == num) {
+                    alert("congratulation!!! you guessed it in " + attempt + " attempt");
+                    location.reload();
+                    attempt++;
+                }
+                else if (randno > num) {
+                    alert("Oops sorry!! Try a bigger no, "+ guess + " guess left")
+                    guess--;
+                    attempt++;
+                }
+
+                else if (randno < num) {
+                    alert("Oops sorry!! Try a smaller no, "+ guess + " guess left")
+                    guess--;
+                    attempt++;
+                }
+            } else {
+                 alert("game over")
+                 location.reload();
+                }
+            // }
+        }
+    </script>
+</body>
+
+</html>
